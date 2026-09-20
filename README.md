@@ -22,6 +22,7 @@ This game is created in HarBari PLIJ Dont Judge.
 
 
 Assets:
+
 Pixel Adventure by Pixel Frog 
 https://pixelfrog-assets.itch.io/pixel-adventure-1
 
@@ -29,6 +30,9 @@ Pine Forest Parallax Background
 https://lazyteastudios.itch.io/pine-forest-parallax-background
 
 Tutorial 
+
 By Coco Code
+
 YT : https://youtube.com/@cococode
+
 Web : [cococode.net](https://cococode.net/)  /   [https://cococode.net/courses/godot-mega-tutorial](https://cococode.net/courses/godot-mega-tutorial)
