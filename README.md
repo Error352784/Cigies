@@ -1,10 +1,16 @@
 # Cigies
 Ma Game
+
 As a beninger I am proud of maself.
+
 I will add more stuff to the game in the future inshallah.
+
 like:
+
 More Challenges.
+
 More Levels.
+
 More Gameplay Mechanics.
 
 
