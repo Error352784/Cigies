@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dei7lsbs122sx" path="res://scenes/Game Objects/collectibles.tscn" id="4_jjnbj"]
 [ext_resource type="Script" uid="uid://ccqnx4ofoimeo" path="res://scenes/Game Objects/game_manager.gd" id="5_v5wxc"]
 [ext_resource type="PackedScene" uid="uid://dnowkbhodc4wp" path="res://scenes/Game Objects/finish.tscn" id="6_g28dl"]
+[ext_resource type="Texture2D" uid="uid://6jx0ct7lmhj2" path="res://assets/Menu/iconsx3.png" id="6_jjnbj"]
 [ext_resource type="PackedScene" uid="uid://dxwoh65ckuqwv" path="res://scenes/Menu/main_menu.tscn" id="7_84na2"]
+[ext_resource type="Script" uid="uid://bsr8xo6v3eman" path="res://scenes/Game Objects/pause.gd" id="7_v5wxc"]
+[ext_resource type="Texture2D" uid="uid://bphr4w1yu0dwb" path="res://assets/Menu/Cool Text - PAUSE MENU 515837979683218.png" id="8_g28dl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
 texture = ExtResource("2_1igg8")
@@ -303,6 +306,17 @@ texture = ExtResource("2_1igg8")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7mycd")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcwjl"]
+atlas = ExtResource("6_jjnbj")
+region = Rect2(8, 248, 48, 48)
+
+[sub_resource type="SystemFont" id="SystemFont_6afmg"]
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_godt6"]
+bg_color = Color(0.7254902, 0.43137255, 0.32941177, 1)
+corner_detail = 20
+
 [node name="Main2" type="Node" unique_id=648228724]
 
 [node name="SceneObjects" type="Node" parent="." unique_id=1185864097]
@@ -371,15 +385,15 @@ position = Vector2(2382, 266)
 unique_name_in_owner = true
 script = ExtResource("5_v5wxc")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=105033599]
+[node name="UI" type="CanvasLayer" parent="." unique_id=915925874]
 
-[node name="Panel" type="Panel" parent="UI" unique_id=1523750073]
+[node name="Panel" type="Panel" parent="UI" unique_id=1540860695]
 offset_left = 14.0
 offset_top = 14.0
 offset_right = 331.0
 offset_bottom = 138.0
 
-[node name="PointsLabel" type="Label" parent="UI/Panel" unique_id=1358359863]
+[node name="PointsLabel" type="Label" parent="UI/Panel" unique_id=1515868381]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -392,6 +406,116 @@ text = "PAPOI"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Hearts" type="Panel" parent="UI" unique_id=336107393]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.62903
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 84.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Hearts" unique_id=1900713798]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -33.5
+offset_right = 104.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=903270315]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_pcwjl")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=2033426647]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_pcwjl")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1994954216]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_pcwjl")
+expand_mode = 2
+
+[node name="Pause" type="Node" parent="UI" unique_id=2110788491]
+script = ExtResource("7_v5wxc")
+
+[node name="PausePanel" type="Panel" parent="UI/Pause" unique_id=1501585738]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Pause/PausePanel" unique_id=863186442]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.5
+offset_top = -228.5
+offset_right = 400.5
+offset_bottom = -123.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_g28dl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel" unique_id=574713084]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -76.0
+offset_right = 173.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer" unique_id=979479062]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9137255, 1, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = SubResource("SystemFont_6afmg")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_godt6")
+text = "RESUME"
+
+[node name="Main menu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer" unique_id=2116708328]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.9137255, 1, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = SubResource("SystemFont_6afmg")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_godt6")
+text = "MAIN MENU"
+
 [node name="Finish" parent="." unique_id=1414792770 instance=ExtResource("6_g28dl")]
 position = Vector2(2378, 67)
 target_level = ExtResource("7_84na2")
+
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Main menu" to="UI/Pause" method="_on_main_menu_pressed"]
