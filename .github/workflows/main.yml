@@ -1,0 +1,23 @@
+name: Deploy to itch.io
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to itch.io
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to itch.io via Butler
+        uses: ayowel/butler-publish@V2
+        with:
+          butler_api_key: ${{ secrets.BUTLER_API_KEY }}
+          game_path: .
+          itch_username: Cigarette_0
+          game_slug: dark-dungeons
+          channel: html5
